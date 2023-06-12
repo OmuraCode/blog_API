@@ -15,6 +15,21 @@ class CategoryCreateListView(generics.ListCreateAPIView):
 
 
 # GET -> ALLOWAny
+# POST -> Any
+
+
+class CategoryDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Category.objects.all()
+    serializer_class = serializers.CategorySerializer
+
+    def get_permissions(self):
+        if self.request.method == 'GET':
+            return [permissions.AllowAny(), ]
+        return [permissions.IsAdminUser(), ]
+
+
+
+
 
 
 
