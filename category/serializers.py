@@ -1,4 +1,4 @@
-import serializers as serializers
+# import serializers as serializers
 from rest_framework import serializers
 
 from category.models import Category
